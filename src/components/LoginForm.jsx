@@ -78,11 +78,6 @@ const LoginForm = ({ onClose }) => {
         </button>
       </form>
       
-      <div className="demo-credentials">
-        <h4>Demo Credentials:</h4>
-        <p><strong>User:</strong> user@likhain.com / password</p>
-        <p><strong>Admin:</strong> admin@likhain.com / password</p>
-      </div>
     </div>
   );
 };

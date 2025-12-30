@@ -16,27 +16,7 @@ export const authService = {
   // Sign in with email and password
   signIn: async (email, password) => {
     try {
-      // Check for admin user credentials first
-      if (email === 'renz42gal@likhain.com' && password === '1493512') {
-        // Get admin user from database
-        const adminResult = await realtimeService.users.getById('renz42gal');
-        if (adminResult.success) {
-          // Save admin user to localStorage for persistence
-          localStorage.setItem('likhain_user', JSON.stringify(adminResult.data));
-          
-          return {
-            success: true,
-            user: adminResult.data
-          };
-        } else {
-          return {
-            success: false,
-            error: 'Admin user not found in database'
-          };
-        }
-      }
-      
-      // Regular Firebase authentication
+      // Firebase authentication
       const userCredential = await signInWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       
@@ -113,17 +93,11 @@ export const authService = {
   // Sign out
   signOut: async () => {
     try {
-      // Check if current user is hardcoded admin
-      const savedUser = localStorage.getItem('likhain_user');
-      const isAdmin = savedUser && savedUser.includes('renz42gal');
-      
       // Clear localStorage
       localStorage.removeItem('likhain_user');
       
-      // Only call Firebase signOut if user is not hardcoded admin
-      if (!isAdmin) {
-        await signOut(auth);
-      }
+      // Sign out from Firebase
+      await signOut(auth);
       
       return { success: true };
     } catch (error) {

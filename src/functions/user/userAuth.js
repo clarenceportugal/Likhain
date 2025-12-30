@@ -21,19 +21,9 @@ export const userAuth = {
   // Login user
   login: async (email, password) => {
     try {
-      // Mock login - in real app, this would be an API call
-      if (email === 'user@example.com' && password === 'password') {
-        const user = {
-          id: 1,
-          name: 'John Doe',
-          email: 'user@example.com',
-          role: 'user',
-          joinDate: '2024-01-01'
-        };
-        localStorage.setItem('user', JSON.stringify(user));
-        return { success: true, user };
-      }
-      return { success: false, error: 'Invalid credentials' };
+      // Note: This is a mock function. In production, use Firebase Authentication
+      console.warn('userAuth.login: This is a mock function. Use Firebase Auth instead.');
+      return { success: false, error: 'Use Firebase Authentication for user login' };
     } catch (error) {
       return { success: false, error: error.message };
     }

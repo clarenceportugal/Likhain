@@ -24,20 +24,10 @@ export const adminAuth = {
   // Admin login
   adminLogin: async (email, password) => {
     try {
-      // Mock admin login - in real app, this would be an API call
-      if (email === 'admin@likhain.com' && password === 'admin123') {
-        const admin = {
-          id: 999,
-          name: 'Admin User',
-          email: 'admin@likhain.com',
-          role: 'admin',
-          joinDate: '2024-01-01',
-          permissions: ['all']
-        };
-        localStorage.setItem('user', JSON.stringify(admin));
-        return { success: true, user: admin };
-      }
-      return { success: false, error: 'Invalid admin credentials' };
+      // Note: This is a mock function. In production, use Firebase Authentication
+      // with proper admin role verification via Custom Claims
+      console.warn('adminLogin: This is a mock function. Use Firebase Auth instead.');
+      return { success: false, error: 'Use Firebase Authentication for admin login' };
     } catch (error) {
       return { success: false, error: error.message };
     }

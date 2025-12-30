@@ -27,6 +27,12 @@ firebase-adminsdk*.json
 
 # Sensitive documentation with credentials
 ADMIN_SETUP.md
+NAME_BIO_FETCH_GUIDE.md
+DISPLAY_NAME_GUIDE.md
+
+# Test files with credentials
+src/firebase/test-*.js
+src/firebase/admin-setup.js
 
 # Editor directories and files
 .vscode/*
